@@ -45,7 +45,6 @@ dependencies {
                 "io.grpc:grpc-services:${grpcVersion}",
                 "io.opentelemetry:opentelemetry-api",
                 "io.opentelemetry:opentelemetry-sdk",
-                "io.opentelemetry.instrumentation:opentelemetry-instrumentation-annotations",
                 "io.opentelemetry:opentelemetry-exporter-otlp",
                 "io.opentelemetry:opentelemetry-semconv",
                 "org.apache.logging.log4j:log4j-core:2.17.2"
@@ -58,7 +57,8 @@ dependencies {
 
 // Default protoSourceDir is in /opentelemetry-demo/pb. Optionally override the
 // location for the docker build, which copies the protos to a different location.
-def protoSourceDir = findProperty('protoSourceDir')?: project.projectDir.parentFile.parentFile.toPath().toString() + "/pb"
+def protoSourceDir = findProperty('protoSourceDir')?: project.projectDir.toPath().toString() + "/pb"
+// def protoSourceDir = findProperty('protoSourceDir')?: project.projectDir.parentFile.parentFile.toPath().toString() + "/pb"
 def protoDestDir = project.buildDir.toPath().toString() + "/proto"
 
 // Copy protos to the build directory

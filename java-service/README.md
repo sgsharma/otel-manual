@@ -23,12 +23,6 @@ export AD_SERVICE_PORT=8080
 ./build/install/hipstershop/bin/AdService
 ```
 
-Test parallel requests:
-
-```sh
-seq 1000 | parallel -n0 -j100 grpcurl -import-path ./bin/default/build/proto -proto demo.proto -plaintext localhost:8080 hipstershop.AdService/GetAds
-```
-
 ### Upgrading Gradle
 
 If you need to upgrade the version of gradle then run

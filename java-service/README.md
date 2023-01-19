@@ -30,11 +30,9 @@ If you need to upgrade the version of gradle then run
 ```sh
 ./gradlew wrapper --gradle-version <new-version>
 ```
-
-## Building Docker
-
-From the root of `opentelemetry-demo`, run:
+### Test with grpcurl
+This assumes you have `watch`, `parallel`, and `grpcurl` utilities installed (`brew install watch && brew install parallel && brew install grpcurl`)
 
 ```sh
-docker build --file ./src/adservice/Dockerfile ./
+watch -n 10 ./test.sh
 ```
